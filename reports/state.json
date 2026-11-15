@@ -21,7 +21,7 @@
   "release": "v2.1.325"
  },
  "NousResearch/hermes-paperclip-adapter": {
-  "release": null
+  "release": "v0.1.1 (tag)"
  },
  "modelcontextprotocol/servers": {
   "release": "v2.4.0"
@@ -33,13 +33,13 @@
   "release": "v1.109.1"
  },
  "torvalds/linux": {
-  "release": null
+  "release": "v7.3 (tag)"
  },
  "systemd/systemd": {
   "release": "v262.2"
  },
  "canonical/ubuntu-desktop-installer": {
-  "release": null
+  "release": "23.10.1 (tag)"
  },
  "flatpak/flatpak": {
   "release": "1.18.4"
@@ -48,7 +48,7 @@
   "release": "2.78"
  },
  "lxde/lxappearance": {
-  "release": null
+  "release": "0.6.4 (tag)"
  },
  "yshui/picom": {
   "release": "v13"
@@ -57,7 +57,7 @@
   "release": "v4.3"
  },
  "baskerville/bspwm": {
-  "release": null
+  "release": "0.9.12 (tag)"
  },
  "swaywm/sway": {
   "release": "1.12"
@@ -72,7 +72,7 @@
   "release": "r3.2"
  },
  "docker/cli": {
-  "release": null
+  "release": "v29.9.3 (tag)"
  },
  "moby/moby": {
   "release": "docker-v29.9.3"
@@ -93,7 +93,7 @@
   "release": "v1.104.7"
  },
  "WireGuard/wireguard-tools": {
-  "release": null
+  "release": "v1.0.20260223 (tag)"
  },
  "juanfont/headscale": {
   "release": "v0.29.7"
@@ -129,19 +129,19 @@
   "release": "v5.0.3"
  },
  "postgres/postgres": {
-  "release": null
+  "release": "REL_18_7 (tag)"
  },
  "pgvector/pgvector": {
-  "release": null
+  "release": "v0.8.7 (tag)"
  },
  "pgadmin-org/pgadmin4": {
-  "release": null
+  "release": "REL-9_19 (tag)"
  },
  "redis/redis": {
   "release": "8.10.3"
  },
  "mysql/mysql-server": {
-  "release": null
+  "release": "mysql-cluster-26.10.0 (tag)"
  },
  "maybe-finance/maybe": {
   "release": "v0.6.0"
@@ -150,34 +150,34 @@
   "release": "v0.7.6-hotfix.1"
  },
  "git/git": {
-  "release": null
+  "release": "v2.56.1 (tag)"
  },
  "nodejs/node": {
-  "release": "v27.0.0-alpha.0.1.0"
+  "release": "v27.0.0-alpha.0.1.0 (latest LTS v26.13.1; from nodejs.org)"
  },
  "npm/cli": {
   "release": "v12.2.2"
  },
  "python/cpython": {
-  "release": null
+  "release": "v3.15.2 (tag)"
  },
  "pypa/pip": {
-  "release": null
+  "release": "26.3 (tag)"
  },
  "astral-sh/uv": {
   "release": "0.13.8"
  },
  "rust-lang/cargo": {
-  "release": null
+  "release": "0.101.0 (tag)"
  },
  "cli/cli": {
   "release": "v2.104.0"
  },
  "ggreer/the_silver_searcher": {
-  "release": null
+  "release": "2.2.0 (tag)"
  },
  "NetworkManager/NetworkManager": {
-  "release": null
+  "release": "1.58.1 (tag)"
  },
  "thesofproject/sof": {
   "release": "v2.15.1"
@@ -186,7 +186,7 @@
   "release": null
  },
  "openssh/openssh-portable": {
-  "release": null
+  "release": "V_10_6_P2 (tag)"
  },
  "obsidianmd/obsidian-releases": {
   "release": "v1.15.1"
@@ -201,7 +201,7 @@
   "release": "4.1.4"
  },
  "deluge-torrent/deluge": {
-  "release": null
+  "release": "deluge-2.2.0 (tag)"
  },
  "keepassxreboot/keepassxc": {
   "release": "2.8.0"
@@ -226,5 +226,38 @@
  },
  "brave/brave-browser": {
   "release": "v1.99.57"
+ },
+ "n8n-io/n8n-docs": {
+  "release": null
+ },
+ "n8n-io/self-hosted-ai-starter-kit": {
+  "release": null
+ },
+ "modelcontextprotocol/python-sdk": {
+  "release": "v2.3.0"
+ },
+ "modelcontextprotocol/typescript-sdk": {
+  "release": "v2.4.0"
+ },
+ "ollama/ollama": {
+  "release": "v0.40.16"
+ },
+ "ggml-org/llama.cpp": {
+  "release": "v1.0.0"
+ },
+ "docker-library/postgres": {
+  "release": null
+ },
+ "aunetx/blur-my-shell": {
+  "release": "v78"
+ },
+ "obsidianmd/obsidian-api": {
+  "release": null
+ },
+ "obsidianmd/obsidian-help": {
+  "release": null
+ },
+ "Free60Project/libxenon": {
+  "release": null
  }
 }
