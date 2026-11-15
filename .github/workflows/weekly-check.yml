@@ -1,0 +1,40 @@
+name: Weekly registry check
+
+on:
+  schedule:
+    - cron: "17 3 * * 1"   # Mondays 03:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run check
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python automation/scripts/check_registry.py
+      - name: Publish report to job summary
+        run: cat "$(ls -t reports/weekly-*.md | head -n1)" >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit report
+        run: |
+          git config user.name "registry-bot"
+          git config user.email "registry-bot@users.noreply.github.com"
+          git add reports
+          git diff --cached --quiet || git commit -m "Weekly report $(date -u +%F)"
+          git push
+      - name: Open issue if something needs review
+        if: steps.check.outputs.flagged == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          f=$(ls -t reports/weekly-*.md | head -n1)
+          gh issue create --title "Registry review needed $(date -u +%F)" --body-file "$f"
