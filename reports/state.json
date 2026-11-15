@@ -1,0 +1,230 @@
+{
+ "NousResearch/hermes-agent": {
+  "release": "v0.23.1"
+ },
+ "openclaw/openclaw": {
+  "release": "v2026.11.3"
+ },
+ "paperclipai/paperclip": {
+  "release": "v2026.1106.0"
+ },
+ "n8n-io/n8n": {
+  "release": "n8n@2.47.7"
+ },
+ "n8n-io/nod": {
+  "release": "nod-v0.7.6"
+ },
+ "openai/codex": {
+  "release": "rust-v0.169.0"
+ },
+ "anthropics/claude-code": {
+  "release": "v2.1.325"
+ },
+ "NousResearch/hermes-paperclip-adapter": {
+  "release": null
+ },
+ "modelcontextprotocol/servers": {
+  "release": "v2.4.0"
+ },
+ "crystaldba/postgres-mcp": {
+  "release": "v0.3.0"
+ },
+ "BerriAI/litellm": {
+  "release": "v1.109.1"
+ },
+ "torvalds/linux": {
+  "release": null
+ },
+ "systemd/systemd": {
+  "release": "v262.2"
+ },
+ "canonical/ubuntu-desktop-installer": {
+  "release": null
+ },
+ "flatpak/flatpak": {
+  "release": "1.18.4"
+ },
+ "canonical/snapd": {
+  "release": "2.78"
+ },
+ "lxde/lxappearance": {
+  "release": null
+ },
+ "yshui/picom": {
+  "release": "v13"
+ },
+ "awesomeWM/awesome": {
+  "release": "v4.3"
+ },
+ "baskerville/bspwm": {
+  "release": null
+ },
+ "swaywm/sway": {
+  "release": "1.12"
+ },
+ "lxqt/lxqt": {
+  "release": "2.5.0"
+ },
+ "davatorium/rofi": {
+  "release": "2.1.1"
+ },
+ "enkore/j4-dmenu-desktop": {
+  "release": "r3.2"
+ },
+ "docker/cli": {
+  "release": null
+ },
+ "moby/moby": {
+  "release": "docker-v29.9.3"
+ },
+ "docker/compose": {
+  "release": "v5.7.1"
+ },
+ "containerd/containerd": {
+  "release": "v2.4.2"
+ },
+ "opencontainers/runc": {
+  "release": "v1.5.3"
+ },
+ "caddyserver/caddy": {
+  "release": "v2.11.9"
+ },
+ "tailscale/tailscale": {
+  "release": "v1.104.7"
+ },
+ "WireGuard/wireguard-tools": {
+  "release": null
+ },
+ "juanfont/headscale": {
+  "release": "v0.29.7"
+ },
+ "portainer/portainer": {
+  "release": "2.45.3"
+ },
+ "google/cadvisor": {
+  "release": "v0.60.6"
+ },
+ "grafana/grafana": {
+  "release": "v13.3.1"
+ },
+ "prometheus/prometheus": {
+  "release": "v3.16.0"
+ },
+ "prometheus/node_exporter": {
+  "release": "v1.12.1"
+ },
+ "hashicorp/terraform": {
+  "release": "v1.17.2"
+ },
+ "google/gvisor": {
+  "release": "release-20261109.0"
+ },
+ "podman-container-tools/podman": {
+  "release": "v6.2.0"
+ },
+ "restic/restic": {
+  "release": "v0.19.1"
+ },
+ "healthchecks/healthchecks": {
+  "release": "v5.0.3"
+ },
+ "postgres/postgres": {
+  "release": null
+ },
+ "pgvector/pgvector": {
+  "release": null
+ },
+ "pgadmin-org/pgadmin4": {
+  "release": null
+ },
+ "redis/redis": {
+  "release": "8.10.3"
+ },
+ "mysql/mysql-server": {
+  "release": null
+ },
+ "maybe-finance/maybe": {
+  "release": "v0.6.0"
+ },
+ "we-promise/sure": {
+  "release": "v0.7.6-hotfix.1"
+ },
+ "git/git": {
+  "release": null
+ },
+ "nodejs/node": {
+  "release": "v27.0.0-alpha.0.1.0"
+ },
+ "npm/cli": {
+  "release": "v12.2.2"
+ },
+ "python/cpython": {
+  "release": null
+ },
+ "pypa/pip": {
+  "release": null
+ },
+ "astral-sh/uv": {
+  "release": "0.13.8"
+ },
+ "rust-lang/cargo": {
+  "release": null
+ },
+ "cli/cli": {
+  "release": "v2.104.0"
+ },
+ "ggreer/the_silver_searcher": {
+  "release": null
+ },
+ "NetworkManager/NetworkManager": {
+  "release": null
+ },
+ "thesofproject/sof": {
+  "release": "v2.15.1"
+ },
+ "aircrack-ng/rtl8812au": {
+  "release": null
+ },
+ "openssh/openssh-portable": {
+  "release": null
+ },
+ "obsidianmd/obsidian-releases": {
+  "release": "v1.15.1"
+ },
+ "bitwarden/clients": {
+  "release": "desktop-v2026.10.4"
+ },
+ "qbittorrent/qBittorrent": {
+  "release": "release-5.3.0"
+ },
+ "transmission/transmission": {
+  "release": "4.1.4"
+ },
+ "deluge-torrent/deluge": {
+  "release": null
+ },
+ "keepassxreboot/keepassxc": {
+  "release": "2.8.0"
+ },
+ "obsproject/obs-studio": {
+  "release": "33.0.1"
+ },
+ "Genymobile/scrcpy": {
+  "release": "v5.0.1"
+ },
+ "ventoy/Ventoy": {
+  "release": "v1.1.18"
+ },
+ "plastic-labs/honcho": {
+  "release": "v3.6.1"
+ },
+ "ghostfolio/ghostfolio": {
+  "release": "3.100.0"
+ },
+ "firefly-iii/firefly-iii": {
+  "release": "v6.7.9"
+ },
+ "brave/brave-browser": {
+  "release": "v1.99.57"
+ }
+}
