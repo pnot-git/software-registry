@@ -2,7 +2,7 @@
 
 | Platform | Records |
 |---|---|
-| GitHub | 71 |
+| GitHub | 82 |
 | GNOME GitLab | 9 |
 | XFCE GitLab | 6 |
 | GitHub (mirror) | 5 |

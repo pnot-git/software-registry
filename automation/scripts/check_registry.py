@@ -1,26 +1,29 @@
 #!/usr/bin/env python3
 """Weekly check of GitHub-hosted records in registry/master-registry.json.
 
-Uses only the official GitHub REST API. Never upgrades anything. Never treats
-a 404, rate limit, or server error as proof of deletion.
+Uses the official GitHub REST API (plus nodejs.org's release index for Node.js).
+Never upgrades anything. Never treats a 404, rate limit, or server error as
+proof of deletion.
 """
-import datetime, json, os, sys, time, urllib.error, urllib.request
+import datetime, json, os, re, sys, time, urllib.error, urllib.request
 
 API = "https://api.github.com"
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TODAY = datetime.date.today().isoformat()
+ADVISORY_CUTOFF = (datetime.date.today() - datetime.timedelta(days=8)).isoformat()
+PRE = re.compile(r"(alpha|beta|rc|pre|dev|snapshot|nightly)", re.I)
+PRE2 = re.compile(r"\d(a|b)\d+$", re.I)
 
 
 def get(path, retries=3):
     """Return (kind, data, final_url). kind: ok | not_found | forbidden | rate_limited | error."""
-    url = API + path
+    url = path if path.startswith("http") else API + path
+    headers = {"Accept": "application/vnd.github+json", "User-Agent": "software-registry-check"}
+    if TOKEN and url.startswith(API):
+        headers["Authorization"] = "Bearer " + TOKEN
     for attempt in range(retries):
-        req = urllib.request.Request(url, headers={
-            "Accept": "application/vnd.github+json",
-            "User-Agent": "software-registry-check",
-            **({"Authorization": "Bearer " + TOKEN} if TOKEN else {}),
-        })
+        req = urllib.request.Request(url, headers=headers)
         try:
             with urllib.request.urlopen(req, timeout=30) as r:  # redirects followed
                 return "ok", json.load(r), r.geturl()
@@ -40,12 +43,47 @@ def get(path, retries=3):
                 time.sleep(2 ** attempt)
                 continue
             return "error", "HTTP %s" % e.code, url
-        except (urllib.error.URLError, TimeoutError) as e:
+        except (urllib.error.URLError, TimeoutError, ValueError) as e:
             if attempt < retries - 1:
                 time.sleep(2 ** attempt)
                 continue
             return "error", str(e), url
     return "error", "unknown", url
+
+
+def vkey(tag):
+    return tuple(int(x) for x in re.findall(r"\d+", tag))
+
+
+def pick_latest_tag(names):
+    best = None
+    for name in names:
+        if not re.search(r"\d", name) or PRE.search(name) or PRE2.search(name):
+            continue
+        if best is None or vkey(name) > vkey(best):
+            best = name
+    return best
+
+
+def latest_tag(full_name):
+    """Highest numeric version among up to 300 tags. A hint only, see automation/README.md."""
+    names = []
+    for page in (1, 2, 3):
+        k, data, _ = get("/repos/%s/tags?per_page=100&page=%d" % (full_name, page))
+        if k != "ok" or not data:
+            break
+        names += [t["name"] for t in data]
+        if len(data) < 100:
+            break
+    return pick_latest_tag(names)
+
+
+def node_versions():
+    k, data, _ = get("https://nodejs.org/dist/index.json")
+    if k != "ok" or not data:
+        return None
+    lts = next((d["version"] for d in data if d.get("lts")), None)
+    return "%s (latest LTS %s; from nodejs.org)" % (data[0]["version"], lts)
 
 
 def main():
@@ -59,36 +97,55 @@ def main():
         repo = r["github_repo"]
         if not repo or r["platform"] == "n/a":
             continue
-        kind, data, final = get("/repos/" + repo)
-        entry = {"id": r["id"], "repo": repo, "release": None}
+        kind, data, _ = get("/repos/" + repo)
         if kind != "ok":
             label = {"not_found": "not found (404: deleted, private, or renamed; verify manually)",
                      "forbidden": "permission failure (403)",
                      "rate_limited": "rate limited (not a repository problem)",
                      "error": "temporary error: %s" % data}[kind]
-            rows.append("| %s | %s | %s |" % (r["id"], repo, label))
+            rows.append("| %s | %s | %s | | |" % (r["id"], repo, label))
             findings.append("%s: %s" % (repo, label))
             if repo in state:
                 new_state[repo] = state[repo]
             continue
-        if data["full_name"].lower() != repo.lower():
-            findings.append("%s moved/renamed to %s" % (repo, data["full_name"]))
+        full = data["full_name"]
+        if full.lower() != repo.lower():
+            findings.append("%s moved/renamed to %s" % (repo, full))
         if data.get("archived") and r.get("archived") is not True:
             findings.append("%s is now ARCHIVED" % repo)
-        k2, rel, _ = get("/repos/%s/releases/latest" % data["full_name"])
-        tag = rel["tag_name"] if k2 == "ok" else None  # /latest excludes drafts and prereleases
+
+        if repo.lower() == "nodejs/node":
+            latest = node_versions() or "unavailable"
+        else:
+            k2, rel, _ = get("/repos/%s/releases/latest" % full)  # excludes drafts and prereleases
+            latest = rel["tag_name"] if k2 == "ok" and rel.get("tag_name") else None
+            if not latest:
+                t = latest_tag(full)
+                latest = (t + " (tag)") if t else "none found"
         prev = state.get(repo, {}).get("release")
-        if tag and prev and tag != prev:
-            findings.append("%s: new release %s (was %s)" % (repo, tag, prev))
-        new_state[repo] = {"release": tag or prev}
-        k3, adv, _ = get("/repos/%s/security-advisories?state=published&per_page=3" % data["full_name"])
-        n_adv = len(adv) if k3 == "ok" and isinstance(adv, list) else "n/a"
-        rows.append("| %s | %s | latest release: %s | advisories (latest 3): %s |" % (r["id"], repo, tag or "none/unknown", n_adv))
+        if prev and latest not in ("none found", "unavailable") and latest != prev:
+            findings.append("%s: latest changed to %s (was %s)" % (repo, latest, prev))
+        new_state[repo] = {"release": latest if latest not in ("none found", "unavailable") else prev}
+
+        k3, adv, _ = get("/repos/%s/security-advisories?state=published&per_page=5" % full)
+        newest, recent = "n/a", "n/a"
+        if k3 == "ok" and isinstance(adv, list):
+            dates = [a["published_at"] for a in adv if a.get("published_at")]
+            newest = max(dates)[:10] if dates else "none"
+            fresh = [a for a in adv if a.get("published_at") and a["published_at"][:10] >= ADVISORY_CUTOFF]
+            recent = str(len(fresh))
+            for a in fresh:
+                findings.append("%s: advisory %s (%s) published %s" % (
+                    repo, a.get("ghsa_id", "?"), a.get("severity", "?"), a["published_at"][:10]))
+        rows.append("| %s | %s | %s | %s | %s |" % (r["id"], repo, latest, newest, recent))
 
     report = ["# Weekly check %s" % TODAY, "", "## Needs review", ""]
     report += ["- " + f for f in findings] or ["- Nothing flagged."]
-    report += ["", "## All checked", "", "| ID | Repo | Result |  |", "|---|---|---|---|"] + rows
-    report += ["", "A new release is information, not an instruction to upgrade."]
+    report += ["", "## All checked", "",
+               "| ID | Repo | Latest release or tag | Newest advisory | Advisories in last 8 days |",
+               "|---|---|---|---|---|"] + rows
+    report += ["", "A new release is information, not an instruction to upgrade.",
+               "Entries marked (tag) are derived from version tags and may be wrong; confirm on the project's site."]
     os.makedirs(os.path.join(ROOT, "reports"), exist_ok=True)
     path = os.path.join(ROOT, "reports", "weekly-%s.md" % TODAY)
     open(path, "w").write("\n".join(report) + "\n")

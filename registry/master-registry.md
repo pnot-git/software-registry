@@ -16,6 +16,10 @@ Generated 2026-11-15 from `master-registry.json`. Release versions and installed
 | R009 | MCP reference servers | upstream | GitHub | https://github.com/modelcontextprotocol/servers | verified-github-api | no | NOASSERTION | Collection of servers; each may have its own package/licence |
 | R011 | LiteLLM | upstream | GitHub | https://github.com/BerriAI/litellm | verified-github-api | no | NOASSERTION |  |
 | A001 | Honcho | upstream | GitHub | https://github.com/plastic-labs/honcho | verified-github-api | no | AGPL-3.0 | Addition: discussed in earlier conversation; usage not established |
+| A007 | MCP Python SDK | upstream | GitHub | https://github.com/modelcontextprotocol/python-sdk | verified-github-api | no | not checked | Addition: official SDK; related to MCP servers entry R009 |
+| A008 | MCP TypeScript SDK | upstream | GitHub | https://github.com/modelcontextprotocol/typescript-sdk | verified-github-api | no | not checked | Addition: official SDK; related to MCP servers entry R009 |
+| A009 | Ollama | upstream | GitHub | https://github.com/ollama/ollama | verified-github-api | no | not checked | Addition: local model inference; usage not established |
+| A010 | llama.cpp | upstream | GitHub | https://github.com/ggml-org/llama.cpp | verified-github-api | no | not checked | Addition: local LLM inference; usage not established |
 
 ## Applications & Utilities
 
@@ -36,12 +40,16 @@ Generated 2026-11-15 from `master-registry.json`. Release versions and installed
 | A002 | Ghostfolio | upstream | GitHub | https://github.com/ghostfolio/ghostfolio | verified-github-api | no | AGPL-3.0 | Addition: discussed/considered in earlier conversation; usage not established |
 | A003 | Firefly III | upstream | GitHub | https://github.com/firefly-iii/firefly-iii | verified-github-api | no | AGPL-3.0 | Addition: discussed/considered in earlier conversation; usage not established |
 | A004 | Brave Browser | upstream | GitHub | https://github.com/brave/brave-browser | verified-github-api | no | MPL-2.0 | Addition: discussed in earlier conversation; usage not established |
+| A013 | Obsidian API types | upstream | GitHub | https://github.com/obsidianmd/obsidian-api | verified-github-api | no | not checked | Addition: type definitions for Obsidian plugin development |
+| A014 | Obsidian help docs | documentation-repo | GitHub | https://github.com/obsidianmd/obsidian-help | verified-github-api | no | not checked | Addition (documentation repo) |
 
 ## Automation & Workflows
 
 | ID | Project | Kind | Platform | Upstream | Verification | Archived | License (GitHub API) | Notes |
 |---|---|---|---|---|---|---|---|---|
 | R004 | n8n | upstream | GitHub | https://github.com/n8n-io/n8n | verified-github-api | no | NOASSERTION | Repo description calls it fair-code; verify license terms before redistribution |
+| A005 | n8n documentation | documentation-repo | GitHub | https://github.com/n8n-io/n8n-docs | verified-github-api | no | not checked | Addition (documentation repo). Discussed project: n8n |
+| A006 | n8n self-hosted AI starter kit | upstream | GitHub | https://github.com/n8n-io/self-hosted-ai-starter-kit | verified-github-api | no | not checked | Addition: template repo curated by n8n; usage not established |
 
 ## Cloud & Infrastructure
 
@@ -73,6 +81,7 @@ Generated 2026-11-15 from `master-registry.json`. Release versions and installed
 | R064 | pgAdmin 4 | upstream | GitHub | https://github.com/pgadmin-org/pgadmin4 | verified-github-api | no | NOASSERTION |  |
 | R065 | Redis | upstream | GitHub | https://github.com/redis/redis | verified-github-api | no | NOASSERTION | Licence terms changed over time; verify the current licence in the repo before relying on it |
 | R066 | MySQL Server | upstream | GitHub | https://github.com/mysql/mysql-server | verified-github-api | no | NOASSERTION |  |
+| A011 | Postgres Docker image | upstream | GitHub | https://github.com/docker-library/postgres | verified-github-api | no | not checked | Addition: Docker Official Image packaging for Postgres; whether it is used is unknown |
 
 ## Development Tools
 
@@ -116,6 +125,7 @@ Generated 2026-11-15 from `master-registry.json`. Release versions and installed
 | R041 | Rofi | upstream | GitHub | https://github.com/davatorium/rofi | verified-github-api | no | NOASSERTION |  |
 | R042 | j4-dmenu-desktop | upstream | GitHub | https://github.com/enkore/j4-dmenu-desktop | verified-github-api | no | GPL-3.0 |  |
 | R083 | X.Org X server | upstream | freedesktop.org GitLab | https://gitlab.freedesktop.org/xorg/xserver | unverified | unknown | unknown | GitLab URL supplied in earlier conversation; not checkable this session. |
+| A012 | Blur my Shell | upstream | GitHub | https://github.com/aunetx/blur-my-shell | verified-github-api | no | not checked | Addition: GNOME Shell extension; discussed in earlier conversation; installation not verified |
 
 ## Linux & Operating Systems
 
@@ -157,4 +167,10 @@ Generated 2026-11-15 from `master-registry.json`. Release versions and installed
 | R084 | rtl8812au (aircrack-ng) | community-fork | GitHub | https://github.com/aircrack-ng/rtl8812au | verified-github-api | no | not reported by API | GitHub fork (fork flag true; parent not checked). Many competing forks of this Realtek driver exist, so no single authoritative upstream. Hidden from default GitHub repo search because it is a fork. Starring left to your decision. |
 | R086 | OpenSSH Portable | official-mirror | GitHub | https://github.com/openssh/openssh-portable | verified-github-api | no | NOASSERTION | Relationship to primary OpenSSH hosting not verified this session; treat as likely official GitHub presence |
 | R087 | iptables | upstream | netfilter.org git | https://git.netfilter.org/iptables/ | corrected-via-web | unknown | unknown | Original lead iptables/iptables returns 404 (verified via GitHub API). netfilter.org project page lists git.netfilter.org/iptables as the development tree. |
+
+## Research & Experimental
+
+| ID | Project | Kind | Platform | Upstream | Verification | Archived | License (GitHub API) | Notes |
+|---|---|---|---|---|---|---|---|---|
+| A015 | libxenon | community-fork | GitHub | https://github.com/Free60Project/libxenon | verified-github-api | no | not checked | Addition: Xbox 360 homebrew library. GitHub fork flag is true; parent not checked. Starring left to your decision. |
 
