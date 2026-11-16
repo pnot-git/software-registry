@@ -3,7 +3,7 @@
   "release": "v0.23.1"
  },
  "openclaw/openclaw": {
-  "release": "v2026.11.3"
+  "release": "v2026.11.4"
  },
  "paperclipai/paperclip": {
   "release": "v2026.1106.0"
@@ -12,7 +12,7 @@
   "release": "n8n@2.47.7"
  },
  "n8n-io/nod": {
-  "release": "nod-v0.7.6"
+  "release": "nod-v0.8.0"
  },
  "openai/codex": {
   "release": "rust-v0.169.0"
