@@ -1,36 +1,36 @@
 {
  "NousResearch/hermes-agent": {
-  "release": "v0.23.1"
+  "release": "v0.23.3"
  },
  "openclaw/openclaw": {
-  "release": "v2026.11.4"
+  "release": "v2026.11.7"
  },
  "paperclipai/paperclip": {
-  "release": "v2026.1106.0"
+  "release": "v2026.1117.0"
  },
  "n8n-io/n8n": {
-  "release": "n8n@2.47.7"
+  "release": "n8n@2.48.8"
  },
  "n8n-io/nod": {
-  "release": "nod-v0.8.0"
+  "release": "nod-v0.9.2"
  },
  "openai/codex": {
-  "release": "rust-v0.169.0"
+  "release": "rust-v0.171.0"
  },
  "anthropics/claude-code": {
-  "release": "v2.1.325"
+  "release": "v2.1.330"
  },
  "NousResearch/hermes-paperclip-adapter": {
   "release": "v0.1.1 (tag)"
  },
  "modelcontextprotocol/servers": {
-  "release": "v2.4.0"
+  "release": "v2.5.0"
  },
  "crystaldba/postgres-mcp": {
   "release": "v0.3.0"
  },
  "BerriAI/litellm": {
-  "release": "v1.109.1"
+  "release": "v1.110.2"
  },
  "torvalds/linux": {
   "release": "v7.3 (tag)"
@@ -72,13 +72,13 @@
   "release": "r3.2"
  },
  "docker/cli": {
-  "release": "v29.9.3 (tag)"
+  "release": "v29.10.0 (tag)"
  },
  "moby/moby": {
-  "release": "docker-v29.9.3"
+  "release": "docker-v29.10.0"
  },
  "docker/compose": {
-  "release": "v5.7.1"
+  "release": "v5.8.0"
  },
  "containerd/containerd": {
   "release": "v2.4.2"
@@ -99,10 +99,10 @@
   "release": "v0.29.7"
  },
  "portainer/portainer": {
-  "release": "2.45.3"
+  "release": "2.45.4"
  },
  "google/cadvisor": {
-  "release": "v0.60.6"
+  "release": "v0.61.1"
  },
  "grafana/grafana": {
   "release": "v13.3.1"
@@ -111,25 +111,25 @@
   "release": "v3.16.0"
  },
  "prometheus/node_exporter": {
-  "release": "v1.12.1"
+  "release": "v1.13.1"
  },
  "hashicorp/terraform": {
   "release": "v1.17.2"
  },
  "google/gvisor": {
-  "release": "release-20261109.0"
+  "release": "release-20261116.0"
  },
  "podman-container-tools/podman": {
   "release": "v6.2.0"
  },
  "restic/restic": {
-  "release": "v0.19.1"
+  "release": "v0.20.0"
  },
  "healthchecks/healthchecks": {
   "release": "v5.0.3"
  },
  "postgres/postgres": {
-  "release": "REL_18_7 (tag)"
+  "release": "REL_19_0 (tag)"
  },
  "pgvector/pgvector": {
   "release": "v0.8.7 (tag)"
@@ -138,7 +138,7 @@
   "release": "REL-9_19 (tag)"
  },
  "redis/redis": {
-  "release": "8.10.3"
+  "release": "8.12.0"
  },
  "mysql/mysql-server": {
   "release": "mysql-cluster-26.10.0 (tag)"
@@ -147,16 +147,16 @@
   "release": "v0.6.0"
  },
  "we-promise/sure": {
-  "release": "v0.7.6-hotfix.1"
+  "release": "v0.7.6-hotfix.2"
  },
  "git/git": {
   "release": "v2.56.1 (tag)"
  },
  "nodejs/node": {
-  "release": "v27.0.0-alpha.0.1.0 (latest LTS v26.13.1; from nodejs.org)"
+  "release": "v27.0.0-alpha.0.1.1 (latest LTS v26.13.1; from nodejs.org)"
  },
  "npm/cli": {
-  "release": "v12.2.2"
+  "release": "libnpmpack-v8.0.6"
  },
  "python/cpython": {
   "release": "v3.15.2 (tag)"
@@ -165,13 +165,13 @@
   "release": "26.3 (tag)"
  },
  "astral-sh/uv": {
-  "release": "0.13.8"
+  "release": "0.13.9"
  },
  "rust-lang/cargo": {
   "release": "0.101.0 (tag)"
  },
  "cli/cli": {
-  "release": "v2.104.0"
+  "release": "v2.105.0"
  },
  "ggreer/the_silver_searcher": {
   "release": "2.2.0 (tag)"
@@ -192,7 +192,7 @@
   "release": "v1.15.1"
  },
  "bitwarden/clients": {
-  "release": "desktop-v2026.10.4"
+  "release": "desktop-v2026.11.0"
  },
  "qbittorrent/qBittorrent": {
   "release": "release-5.3.0"
@@ -207,7 +207,7 @@
   "release": "2.8.0"
  },
  "obsproject/obs-studio": {
-  "release": "33.0.1"
+  "release": "33.0.3"
  },
  "Genymobile/scrcpy": {
   "release": "v5.0.1"
@@ -225,7 +225,7 @@
   "release": "v6.7.9"
  },
  "brave/brave-browser": {
-  "release": "v1.99.57"
+  "release": "v1.100.58"
  },
  "n8n-io/n8n-docs": {
   "release": null
@@ -240,7 +240,7 @@
   "release": "v2.4.0"
  },
  "ollama/ollama": {
-  "release": "v0.40.16"
+  "release": "v0.40.17"
  },
  "ggml-org/llama.cpp": {
   "release": "v1.0.0"
